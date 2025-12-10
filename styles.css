@@ -1,5 +1,36 @@
+body {
+    display: flex; /* Usar Flexbox para centrar */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura de la ventana */
+    margin: 0;
+    background-color: #e3e2e4; /* Fondo página */
+}
+
+.calculadora {
+    width: 500px; /* Ancho FIjo */
+    padding: 20px; /* Espaciado interno */
+    background-color: #99acff;
+    box-sizing: border-box;
+}
+
+.pantalla {
+    width: 100%;
+    height: 60px; /* Altura pantalla */
+    margin-bottom: 20px; /* Espacio inferior */
+    font-size: 24px; /* Tamaño fuente */
+    box-sizing: border-box;
+}
+
 .botones {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
+}
+
+button { /* Estilo para los botones (Así son mas cuadrados y grandes) */
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.5rem; /* Tamaño de fuente */
 }
