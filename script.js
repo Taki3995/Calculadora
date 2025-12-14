@@ -1,6 +1,10 @@
 // Seleccionar pantalla y botones
-const pantalla = document.querySelector(".pantalla");
+const operacionDiv = document.querySelector(".operacion");
+const resultadoDiv = document.querySelector(".resultado");
 const botones = document.querySelectorAll("button");
+
+// Variable para guardar la operación matemática
+let operacionActual = "";
 
 // Recorrer cada botón
 botones.forEach(boton=> {
@@ -8,28 +12,34 @@ botones.forEach(boton=> {
         const botonApretado = boton.textContent;
 
         // Si se apreta AC (Borrar todo)
-        if(botonApretado === "AC") {
-            pantalla.value = "";
+        if (botonApretado === "AC") {
+            operacionActual = "";
+            operacionDiv.textContent = "";
+            resultadoDiv.textContent = "0"; // Volvemos el resultado a 0
             return;
         }
 
         // Si se apreta Del (Borrar lo último)
         if(botonApretado === "Del") {
-            pantalla.value = pantalla.value.slice(0,-1)
+            operacionActual = operacionActual.slice(0,-1);
+            operacionDiv.textContent = operacionActual;
             return;
         }
 
         //Si se apreta = (Calcular resultado)
         if(botonApretado === "=") {
             try {
-                pantalla.value = eval(pantalla.value); // eval() toma el texto y lo calcula matemáticamente
+                // Calcula y muestra solo abajo
+                const calculo = eval(operacionActual); 
+                resultadoDiv.textContent = calculo;
             } catch {
-                pantalla.value = "Error";
+                resultadoDiv.textContent = "Error";
             }
             return;
         }
 
         // Resto de botones (Números y operadores)
-        pantalla.value += botonApretado;
+        operacionActual += botonApretado;
+        operacionDiv.textContent = operacionActual;
     });
 });
