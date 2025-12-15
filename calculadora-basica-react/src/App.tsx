@@ -5,6 +5,11 @@ function App() {
   // [nombre de la variable, función para cambiarla] = useState(valor inicial)
   // No se puede cambiar solo con input, debe ser setInput, o setCualquiercosa
   const [input, setInput] = useState(''); //estado para la entrada de la calculadora
+  
+  // función para agregar valores a la entrada
+  const agregarInput = (valor: string) => {
+    setInput(input + valor);
+  }
   return ( 
     /* A diferencia del codigo html, se quitan todas las etiquetas que indiquen cosas extra que no sean solo de la calculadora*/ 
     /* todo lo demás esta definido automaticamente por react */
@@ -16,7 +21,7 @@ function App() {
             <div className="resultado">0</div> {/*muestra el resultado*/}
         </div>
         <div className = "botones">
-            <button>7</button>
+            <button onClick={() => agregarInput('7')}>7</button>
             <button>8</button>
             <button>9</button>
             <button>Del</button>
