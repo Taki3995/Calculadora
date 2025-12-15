@@ -1,42 +1,66 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Igual al css anterior */
+
+body {
+    display: flex; /* Usar Flexbox para centrar */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura de la ventana */
+    margin: 0;
+    background-color: #e3e2e4; /* Fondo página */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.calculadora {
+    width: 500px; /* Ancho FIjo */
+    height: 100%;
+    padding: 20px; /* Espaciado interno */
+    background-color: #99acff;
+    box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pantalla {
+    width: 100%;
+    height: 120px; /* Altura pantalla */
+    margin-bottom: 20px; /* Espacio inferior */
+    padding: 10px 20px;
+    font-size: 24px; /* Tamaño fuente */
+    background-color: aliceblue;
+
+    display: flex; /* Flexbos para organizar donde van los numeros en la pantalla */
+    flex-direction: column; /* Organiza elementos uno encima de otro */
+    justify-content: space-between; /* Empuja uno arriba y el otro al fondo abajo */
+
+    box-sizing: border-box; /* Padding no deforma el tamaño */
+    word-wrap: break-word; /* Evita que los numeros largos se salgan */
+    word-break: break-all; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.operacion {
+    font-size: 30px; /* Tamaño fuente operación */
+    text-align: left; /* Alinea a la izquierda */
+    color: rgb(0, 0, 0); /* Color gris para la operación */
+    min-height: 24px; /* Altura mínima para que no se mueva al escribir */
 }
 
-.card {
-  padding: 2em;
+.resultado {
+    font-size: 30px; /* Tamaño fuente resultado */
+    text-align: right; /* Alinea a la derecha */
+    color:rgb(25, 25, 150);
 }
 
-.read-the-docs {
-  color: #888;
+.botones {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+button { /* Estilo para los botones (Así son mas cuadrados y grandes) */
+    width: 100%;
+    aspect-ratio: 1;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+.zero {
+    grid-column: span 3; /* Ocupa 3 columnas */
+    aspect-ratio: auto; /* Ajusta la altura automáticamente, si no quedan algunos botones muy grandes */
 }
