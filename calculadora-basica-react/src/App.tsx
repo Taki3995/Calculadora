@@ -1,13 +1,18 @@
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  // [nombre de la variable, función para cambiarla] = useState(valor inicial)
+  // No se puede cambiar solo con input, debe ser setInput, o setCualquiercosa
+  const [input, setInput] = useState(''); //estado para la entrada de la calculadora
   return ( 
     /* A diferencia del codigo html, se quitan todas las etiquetas que indiquen cosas extra que no sean solo de la calculadora*/ 
     /* todo lo demás esta definido automaticamente por react */
     <div className=" calculadora"> 
         <h1>Calculadora Básica</h1>
         <div className="pantalla">
-            <div className="operacion"></div> {/*muestra la operación (entre llaves para comentarios de jsx)*/}
+            {/* muestra la operación. Las {} indican que es código JS, no texto */}
+            <div className="operacion">{input}</div> {/*muestra la operación (entre llaves para comentarios de jsx)*/}
             <div className="resultado">0</div> {/*muestra el resultado*/}
         </div>
         <div className = "botones">
