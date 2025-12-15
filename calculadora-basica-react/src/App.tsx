@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Boton from './components/Boton';
 
 function App() {
   // [nombre de la variable, función para cambiarla] = useState(valor inicial)
@@ -10,6 +11,23 @@ function App() {
   const agregarInput = (valor: string) => {
     setInput(input + valor);
   }
+
+  // función para limpiar todo (AC)
+  const limpiar = () => {
+    setInput('');
+  }
+
+  // función para borrar el último carrácter (DEL)
+  const borrarUltimo = () => {
+    if (input === "Error") {
+      setInput(''); // si dice ereror borra todo
+    }
+    else {
+      setInput(input.slice(0, -1)); // borra el ultimo
+    }
+  }
+
+
   return ( 
     /* A diferencia del codigo html, se quitan todas las etiquetas que indiquen cosas extra que no sean solo de la calculadora*/ 
     /* todo lo demás esta definido automaticamente por react */
@@ -21,7 +39,7 @@ function App() {
             <div className="resultado">0</div> {/*muestra el resultado*/}
         </div>
         <div className = "botones">
-            <button onClick={() => agregarInput('7')}>7</button>
+            <Boton texto="7" manejarClic={agregarInput} />
             <button>8</button>
             <button>9</button>
             <button>Del</button>
