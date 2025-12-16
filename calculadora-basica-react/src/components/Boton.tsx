@@ -1,5 +1,3 @@
-import './Boton.css'
-
 interface BotonProps {
     texto: string;
     clase?: string; // ? indica que es opcional 
@@ -9,7 +7,7 @@ interface BotonProps {
 function Boton({ texto, clase, manejarClic }: BotonProps) {
     return (
         <button
-            className={clase} // Si le mando clase la usa, si no queda vacío
+            className={`size-14 w-full aspect-square bg-indigo-200 text-2xl rounded-xl shadow hover:bg-indigo-400 ${clase}`}
             onClick={() => manejarClic(texto)}>
             {texto}
         </button>

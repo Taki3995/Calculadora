@@ -72,7 +72,7 @@ function App() {
             <Boton texto="3" manejarClic={agregarInput} />
             <Boton texto="+" manejarClic={agregarInput} />
             <Boton texto="-" manejarClic={agregarInput} />
-            <Boton texto="0" clase="zero" manejarClic={agregarInput} /> {/*Dar al cero una clase unica para poder cambiar su ancho */}
+            <Boton texto="0" clase="col-span-3" manejarClic={agregarInput} /> {/* ya no es clase zero, se llama a la o las clases de tailwind que son especificas para este boton*/}
             <Boton texto="." manejarClic={agregarInput} />
             <Boton texto="=" manejarClic={() => calcularResultado()} />
         </div>
