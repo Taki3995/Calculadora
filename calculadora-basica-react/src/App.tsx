@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import Boton from './components/Boton';
 
 function App() {
@@ -45,38 +44,38 @@ function App() {
   }
 
   return ( 
-    /* A diferencia del codigo html, se quitan todas las etiquetas que indiquen cosas extra que no sean solo de la calculadora*/ 
-    /* todo lo demás esta definido automaticamente por react */
-    <div className=" calculadora"> 
-        <h1>Calculadora Básica</h1>
-        <div className="pantalla">
-            {/* muestra la operación. Las {} indican que es código JS, no texto */}
-            <div className="operacion">{input}</div> {/*muestra la operación (entre llaves para comentarios de jsx)*/}
-            <div className="resultado">{resultado}</div> {/*muestra el resultado*/}
-        </div>
-        <div className = "botones">
-            <Boton texto="7" manejarClic={agregarInput} />
-            <Boton texto="8" manejarClic={agregarInput} />
-            <Boton texto="9" manejarClic={agregarInput} />
-            <Boton texto="Del" manejarClic={() => borrarUltimo()} /> {/* Flecha 'anonima' ya que manejar click recibe string pero las funciones especiales no */}
-            <Boton texto="AC" manejarClic={() => limpiar()} />
+    <div className="min-h-screen bg-slate-200 flex items-center justify-center p-4"> {/* engloba todo */}
+      <div className="w-full max-w-md bg-indigo-400 rounded-2xl shadow-2xl flex flex-col gap-5 p-5"> {/* calculadora */}
+          <h1 className="text-center text-indigo-900 font-bold text-xl tracking-wider">Calculadora Básica</h1>
+          <div className="h-32 bg-slate-100 rounded-xl shadow-inner flex flex-col justify-between p-4 break-all text-right"> {/* pantalla */}
+              {/* muestra la operación. Las {} indican que es código JS, no texto */}
+              <div className="text-gray-900 text-4xl font-medium h-8">{input}</div> {/*operación*/}
+              <div className="text-indigo-900 text-4xl font-medium h-8">{resultado}</div> {/*Resultado*/}
+          </div>
+          <div className = "grid grid-cols-5 gap-2">
+              <Boton texto="7" manejarClic={agregarInput} />
+              <Boton texto="8" manejarClic={agregarInput} />
+              <Boton texto="9" manejarClic={agregarInput} />
+              <Boton texto="Del" clase="bg-red-200 text-red-900 hover:bg-red-400" manejarClic={() => borrarUltimo()} /> {/* Flecha 'anonima' ya que manejar click recibe string pero las funciones especiales no */}
+              <Boton texto="AC" clase="bg-red-200 text-red-900 hover:bg-red-400" manejarClic={() => limpiar()} />
 
-            <Boton texto="4" manejarClic={agregarInput} />
-            <Boton texto="5" manejarClic={agregarInput} />
-            <Boton texto="6" manejarClic={agregarInput} />
-            <Boton texto="*" manejarClic={agregarInput} />
-            <Boton texto="/" manejarClic={agregarInput} />
+              <Boton texto="4" manejarClic={agregarInput} />
+              <Boton texto="5" manejarClic={agregarInput} />
+              <Boton texto="6" manejarClic={agregarInput} />
+              <Boton texto="*" clase="bg-yellow-100 text-orange-800 hover:bg-yellow-300" manejarClic={agregarInput} />
+              <Boton texto="/" clase="bg-yellow-100 text-orange-800 hover:bg-yellow-300" manejarClic={agregarInput} />
 
-            <Boton texto="1" manejarClic={agregarInput} />
-            <Boton texto="2" manejarClic={agregarInput} />
-            <Boton texto="3" manejarClic={agregarInput} />
-            <Boton texto="+" manejarClic={agregarInput} />
-            <Boton texto="-" manejarClic={agregarInput} />
-            <Boton texto="0" clase="col-span-3" manejarClic={agregarInput} /> {/* ya no es clase zero, se llama a la o las clases de tailwind que son especificas para este boton*/}
-            <Boton texto="." manejarClic={agregarInput} />
-            <Boton texto="=" manejarClic={() => calcularResultado()} />
-        </div>
-    </div>
+              <Boton texto="1" manejarClic={agregarInput} />
+              <Boton texto="2" manejarClic={agregarInput} />
+              <Boton texto="3" manejarClic={agregarInput} />
+              <Boton texto="+" clase="bg-yellow-100 text-orange-800 hover:bg-yellow-300" manejarClic={agregarInput} />
+              <Boton texto="-" clase="bg-yellow-100 text-orange-800 hover:bg-yellow-300" manejarClic={agregarInput} />
+              <Boton texto="0" clase="col-span-3" manejarClic={agregarInput} /> {/* ya no es clase zero, se llama a la o las clases de tailwind que son especificas para este boton*/}
+              <Boton texto="." clase="bg-green-100 text-green-800 hover:bg-green-300" manejarClic={agregarInput} />
+              <Boton texto="=" clase="bg-blue-300 text-blue-800 hover:bg-blue-500" manejarClic={() => calcularResultado()} />
+          </div>
+      </div>
+    </div> 
   )
 }
 

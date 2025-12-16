@@ -7,7 +7,7 @@ interface BotonProps {
 function Boton({ texto, clase, manejarClic }: BotonProps) {
     return (
         <button
-            className={`size-14 w-full aspect-square bg-indigo-200 text-2xl rounded-xl shadow hover:bg-indigo-400 ${clase}`}
+            className={`size-14 w-full aspect-square bg-indigo-200 text-2xl rounded-xl shadow hover:bg-indigo-500 ${clase}`}
             onClick={() => manejarClic(texto)}>
             {texto}
         </button>
