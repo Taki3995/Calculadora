@@ -1,54 +1,77 @@
-/* Igual al css anterior */
+/* Variables globales. si quiero cambiar algo lo cambio desde aquí en vez de buscar la linea en cada componente*/
+:root {
+    --color-fondo-pagina: #e3e2e4;
+    --color-calculadora: #99acff;
+    --color-pantalla: aliceblue;
+    --color-texto-operacion: #333;
+    --color-texto-resultado: rgb(25, 25, 150);
+    --borde-radio: 15px; /* Para que las esquinas sean redonditas */
+}
 
-body {
-    display: flex; /* Usar Flexbox para centrar */
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Altura de la ventana */
+* { /* Selecciona todos los elementos de la pagina */
+    box-sizing: border-box; /* Para que el pading no aumente el tamaño total */
     margin: 0;
-    background-color: #e3e2e4; /* Fondo página */
+    padding: 0;
+    font-family: sans-serif; /* Una fuente más limpia */
+}
+
+/* Centrado */
+body {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical*/
+    min-height: 100vh; /* vh es altura de ventana. asi si la pantalla es muy chica, no se corta.*/
+    background-color: var(--color-fondo-pagina);
 }
 
 .calculadora {
-    width: 100%; /* Ancho FIjo */
-    height: 100%;
-    padding: 20px; /* Espaciado interno */
-    background-color: #99acff;
-    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px; /* usa todo el ancho (100%) pero si es muy ancho llega hasta 400. en celular se ve pantalla completa y en pc se ve centrado*/
+    padding: 20px;
+    background-color: var(--color-calculadora);
+    border-radius: var(--borde-radio); /* Esquinas redondas */
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.2); /* sombra */
+    
+    /* Flexbox para separar pantalla de botones si sobra espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+/* 5. LA PANTALLA */
 .pantalla {
-    width: 100%;
-    height: 120px; /* Altura pantalla */
-    margin-bottom: 20px; /* Espacio inferior */
-    padding: 10px 20px;
-    font-size: 24px; /* Tamaño fuente */
-    background-color: aliceblue;
-
-    display: flex; /* Flexbos para organizar donde van los numeros en la pantalla */
-    flex-direction: column; /* Organiza elementos uno encima de otro */
-    justify-content: space-between; /* Empuja uno arriba y el otro al fondo abajo */
-
-    box-sizing: border-box; /* Padding no deforma el tamaño */
-    word-wrap: break-word; /* Evita que los numeros largos se salgan */
-    word-break: break-all; 
+    height: 120px;
+    padding: 15px;
+    background-color: var(--color-pantalla);
+    border-radius: 10px; /* Bordes redondeados internos */
+    box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1); /* Sombra interna (con inset) */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* Manejo de texto largo */
+    overflow: hidden; 
+    word-wrap: break-word;
+    word-break: break-all; /* Para que el texto no salga de la pantalla si es muy largo */
 }
 
 .operacion {
-    font-size: 30px; /* Tamaño fuente operación */
-    text-align: left; /* Alinea a la izquierda */
-    color: rgb(0, 0, 0); /* Color gris para la operación */
-    min-height: 24px; /* Altura mínima para que no se mueva al escribir */
+    font-size: 1.5rem;
+    text-align: left;
+    color: var(--color-texto-operacion);
+    min-height: 24px;
 }
 
 .resultado {
-    font-size: 30px; /* Tamaño fuente resultado */
-    text-align: right; /* Alinea a la derecha */
-    color:rgb(25, 25, 150);
+    font-size: 1.5rem; /* Más grande para destacar */
+    text-align: right;
+    font-weight: bold;
+    color: var(--color-texto-resultado);
 }
 
 .botones {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 12px; /* Un poco más de espacio entre botones */
 }
