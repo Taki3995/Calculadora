@@ -1,4 +1,4 @@
-import './Boton.css'
+// import './Boton.css'
 
 interface BotonProps {
     texto: string;
@@ -13,7 +13,7 @@ function Boton({ texto, clase, manejarClic }: BotonProps) {
             onClick={() => manejarClic(texto)}
         >
             {texto}
-        </button> 
+        </button>
     );
 }
 

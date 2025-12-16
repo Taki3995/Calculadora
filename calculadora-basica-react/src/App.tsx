@@ -27,6 +27,18 @@ function App() {
     }
   }
 
+  // funcion para calcular resultado
+  const calcularResultado = () => {
+    try {
+      if (input) { // Para que calcule solo si hay algo escrito
+        // eval() ejecuta las matematicas escritas como string
+        // toString() convierte el resutlado en string para mostrarlo
+        setInput(eval(input).toString());
+      }
+    } catch (error) {
+      setInput("Error"); // si hay un error en la operación, muestra "Error"
+    }
+  }
 
   return ( 
     /* A diferencia del codigo html, se quitan todas las etiquetas que indiquen cosas extra que no sean solo de la calculadora*/ 
@@ -40,25 +52,25 @@ function App() {
         </div>
         <div className = "botones">
             <Boton texto="7" manejarClic={agregarInput} />
-            <button>8</button>
-            <button>9</button>
-            <button>Del</button>
-            <button>AC</button>
+            <Boton texto="8" manejarClic={agregarInput} />
+            <Boton texto="9" manejarClic={agregarInput} />
+            <Boton texto="Del" manejarClic={borrarUltimo} />
+            <Boton texto="AC" manejarClic={limpiar} />
 
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>*</button>
-            <button>/</button>
+            <Boton texto="4" manejarClic={agregarInput} />
+            <Boton texto="5" manejarClic={agregarInput} />
+            <Boton texto="6" manejarClic={agregarInput} />
+            <Boton texto="*" manejarClic={agregarInput} />
+            <Boton texto="/" manejarClic={agregarInput} />
 
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>+</button>
-            <button>-</button>
-            <button className="zero">0</button> {/*Dar al cero una clase unica para poder cambiar su ancho */}
-            <button>.</button>
-            <button>=</button>
+            <Boton texto="1" manejarClic={agregarInput} />
+            <Boton texto="2" manejarClic={agregarInput} />
+            <Boton texto="3" manejarClic={agregarInput} />
+            <Boton texto="+" manejarClic={agregarInput} />
+            <Boton texto="-" manejarClic={agregarInput} />
+            <Boton texto="0" clase="zero" manejarClic={agregarInput} /> {/*Dar al cero una clase unica para poder cambiar su ancho */}
+            <Boton texto="." manejarClic={agregarInput} />
+            <Boton texto="=" manejarClic={calcularResultado} />
         </div>
     </div>
   )
