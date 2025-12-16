@@ -58,8 +58,8 @@ function App() {
             <Boton texto="7" manejarClic={agregarInput} />
             <Boton texto="8" manejarClic={agregarInput} />
             <Boton texto="9" manejarClic={agregarInput} />
-            <Boton texto="Del" manejarClic={borrarUltimo} />
-            <Boton texto="AC" manejarClic={limpiar} />
+            <Boton texto="Del" manejarClic={() => borrarUltimo()} /> {/* Flecha 'anonima' ya que manejar click recibe string pero las funciones especiales no */}
+            <Boton texto="AC" manejarClic={() => limpiar()} />
 
             <Boton texto="4" manejarClic={agregarInput} />
             <Boton texto="5" manejarClic={agregarInput} />
@@ -74,7 +74,7 @@ function App() {
             <Boton texto="-" manejarClic={agregarInput} />
             <Boton texto="0" clase="zero" manejarClic={agregarInput} /> {/*Dar al cero una clase unica para poder cambiar su ancho */}
             <Boton texto="." manejarClic={agregarInput} />
-            <Boton texto="=" manejarClic={calcularResultado} />
+            <Boton texto="=" manejarClic={() => calcularResultado()} />
         </div>
     </div>
   )
