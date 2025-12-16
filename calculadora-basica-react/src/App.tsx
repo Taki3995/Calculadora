@@ -7,6 +7,9 @@ function App() {
   // No se puede cambiar solo con input, debe ser setInput, o setCualquiercosa
   const [input, setInput] = useState(''); //estado para la entrada de la calculadora
   
+  // Memoria para el resultado
+  const [resultado, setResultado] = useState("0");
+
   // función para agregar valores a la entrada
   const agregarInput = (valor: string) => {
     setInput(input + valor);
@@ -15,6 +18,7 @@ function App() {
   // función para limpiar todo (AC)
   const limpiar = () => {
     setInput('');
+    setResultado("0");
   }
 
   // función para borrar el último carrácter (DEL)
@@ -33,10 +37,10 @@ function App() {
       if (input) { // Para que calcule solo si hay algo escrito
         // eval() ejecuta las matematicas escritas como string
         // toString() convierte el resutlado en string para mostrarlo
-        setInput(eval(input).toString());
+        setResultado(eval(input).toString());
       }
     } catch (error) {
-      setInput("Error"); // si hay un error en la operación, muestra "Error"
+    setResultado("Error"); // si hay un error en la operación, muestra "Error"
     }
   }
 
@@ -48,7 +52,7 @@ function App() {
         <div className="pantalla">
             {/* muestra la operación. Las {} indican que es código JS, no texto */}
             <div className="operacion">{input}</div> {/*muestra la operación (entre llaves para comentarios de jsx)*/}
-            <div className="resultado">0</div> {/*muestra el resultado*/}
+            <div className="resultado">{resultado}</div> {/*muestra el resultado*/}
         </div>
         <div className = "botones">
             <Boton texto="7" manejarClic={agregarInput} />

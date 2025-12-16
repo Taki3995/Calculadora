@@ -10,7 +10,7 @@ body {
 }
 
 .calculadora {
-    width: 500px; /* Ancho FIjo */
+    width: 100%; /* Ancho FIjo */
     height: 100%;
     padding: 20px; /* Espaciado interno */
     background-color: #99acff;

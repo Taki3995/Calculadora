@@ -10,8 +10,7 @@ function Boton({ texto, clase, manejarClic }: BotonProps) {
     return (
         <button
             className={clase} // Si le mando clase la usa, si no queda vacío
-            onClick={() => manejarClic(texto)}
-        >
+            onClick={() => manejarClic(texto)}>
             {texto}
         </button>
     );
