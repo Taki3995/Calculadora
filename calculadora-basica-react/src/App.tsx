@@ -45,7 +45,33 @@ function App() {
 
   return ( 
     <div className="min-h-screen bg-slate-200 flex items-center justify-center p-4"> {/* engloba todo */}
-      <div className="w-full max-w-md bg-indigo-400 rounded-2xl shadow-2xl flex flex-col gap-5 p-5"> {/* calculadora */}
+      <div className="
+    /* --- celular y tablet vertical --- */
+    w-[90%]             /* se adapta al ancho, pero dejando margen */
+    max-w-md            /* para que no quede tan ancho en tablets */
+    h-auto              /* Altura automática */
+    aspect-[3/4]       /* altura se calcula segun ancho */
+
+    /* --- celular y tablet horizontal --- */
+    landscape:h-[80vh]
+    landscape:w-auto
+    landscape:aspect-[5/6]
+
+    /* --- PC --- */
+    md:h-[80vh]         /* Ocupa el 80% de la altura de la pantalla */
+    md:w-auto           /* ancho automatico*/
+    md:aspect-[5/6]     /* ancho se calcula segun altura */
+    md:max-w-none       /* para que no tenga maximo ancho en pc */
+    
+    /* --- estetica --- */
+    bg-indigo-400 
+    rounded-3xl 
+    shadow-2xl 
+    flex flex-col 
+    justify-center
+    gap-6
+    p-5
+"> {/* calculadora */}
           <h1 className="text-center text-indigo-900 font-bold text-xl tracking-wider">Calculadora Básica</h1>
           <div className="h-32 bg-slate-100 rounded-xl shadow-inner flex flex-col justify-between p-4 break-all text-right"> {/* pantalla */}
               {/* muestra la operación. Las {} indican que es código JS, no texto */}

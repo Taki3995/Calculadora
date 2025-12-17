@@ -9,7 +9,7 @@ function Boton({ texto, clase, manejarClic }: BotonProps) {
     const colorHover = clase?.includes('hover:bg-') ? '' : 'hover:bg-indigo-300'; // si no le doy yo una clase al boton, toma esta default
     return (
         <button
-            className={`size-14 w-full aspect-square ${colorBase} text-2xl rounded-xl shadow ${colorHover} ${clase}`}
+            className={`h-full w-full ${colorBase} text-2xl rounded-xl shadow ${colorHover} ${clase}`}
             onClick={() => manejarClic(texto)}>
             {texto}
         </button>
