@@ -36,28 +36,23 @@ function App() {
     <div className="min-h-screen bg-slate-200 flex items-center justify-center p-4">
       
       <div className="
-        /* --- MÓVIL (Base) --- */
-        w-[95%] max-w-md h-auto aspect-[3/4] 
+        /* === BASE (Móvil) === */
+        w-[95%] max-w-md h-auto aspect-[3/4]
         
-        /* --- TABLET (md) --- */
-        /* Aquí está el arreglo: En Tablet seguimos limitando el ancho (max-w-lg) */
-        /* para que no se vea como un poster gigante */
+        /* === TABLET & IPAD PRO VERTICAL (md) === */
         md:max-w-lg md:w-[90%] md:aspect-[3/4]
 
-        /* --- MÓVIL HORIZONTAL (Landscape) --- */
+        /* === MÓVIL HORIZONTAL === */
         landscape:h-[85vh] landscape:w-auto landscape:aspect-[5/6]
 
-        /* --- PC / LAPTOP (lg - Large Screens) --- */
-        /* Solo en pantallas grandes activamos el modo 'Altura Manda' */
-        lg:h-[85vh] lg:w-auto lg:aspect-[5/6] lg:max-w-none
+        /* === PC / LAPTOP (Solo si es GRANDE y HORIZONTAL) === */
+        lg:landscape:h-[85vh] lg:landscape:w-auto lg:landscape:aspect-[5/6] lg:landscape:max-w-none
         
-        /* --- ESTÉTICA --- */
-        bg-indigo-400 
-        rounded-3xl 
-        shadow-2xl 
-        flex flex-col 
-        p-4
+        /* === ESTÉTICA === */
+        bg-indigo-400 rounded-3xl shadow-2xl flex flex-col p-4
       "> 
+          
+          {/* Bloque Superior */}
           <div className="flex flex-col gap-3 mb-4 h-1/3 min-h-[140px]">
               
               <h1 className="text-center text-indigo-900 font-bold text-lg tracking-wider opacity-80">
@@ -65,18 +60,25 @@ function App() {
               </h1>
               
               <div className="h-full bg-slate-100 rounded-xl shadow-inner flex flex-col justify-between p-4 break-all">
-                  {/* Agregué lg:text-6xl para que el texto crezca en PC */}
-                  <div className="text-gray-500 text-4xl lg:text-5xl font-medium text-left">
+                  
+                  {/* === INPUT === */}
+                  {/* Móvil: text-3xl (pequeño para que quepa) */}
+                  {/* PC: lg:text-5xl (grande) */}
+                  <div className="text-gray-500 text-2xl md:text-4xl lg:text-5xl font-medium text-left">
                       {input}
                   </div> 
-                  <div className="text-indigo-900 text-5xl lg:text-6xl font-bold text-right">
+                  
+                  {/* === RESULTADO === */}
+                  {/* Móvil: text-5xl (controlado) */}
+                  {/* PC: lg:text-6xl (impactante) */}
+                  <div className="text-indigo-900 text-2xl md:text-4xl lg:text-5xl font-bold text-right">
                       {resultado}
                   </div>
               </div>
           </div>
 
+          {/* Bloque Inferior (Teclado) */}
           <div className="grid grid-cols-5 grid-rows-4 gap-2 flex-1">
-              {/* Sin cambios en los botones */}
               <Boton texto="7" manejarClic={agregarInput} />
               <Boton texto="8" manejarClic={agregarInput} />
               <Boton texto="9" manejarClic={agregarInput} />
